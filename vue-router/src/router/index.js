@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import formS from '@/components/form.vue'
 import sampleV from '../components/sample.vue'
+import formValid from '../components/form-validation'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/form',
       name: 'form',
       component: formS
+    },
+    {
+      path: 'form-valid',
+      name: 'form-valid',
+      component: formValid
     }
   ]
 })
