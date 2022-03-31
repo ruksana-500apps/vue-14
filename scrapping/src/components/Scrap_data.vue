@@ -9,7 +9,7 @@
     <b-button @click="getData()">Click Me!</b-button>
 
     <div>
-      <!--{{ searchData.data }}-->
+      {{ searchData.data }}
     </div>
     <div>
        <center> <table border=2px>
@@ -46,15 +46,14 @@ export default {
       options: {
         method: "POST",
 
-        url: "https://trains.p.rapidapi.com/",
+        url: "",
 
         headers: {
           "content-type": "application/json",
 
-          "X-RapidAPI-Host": "trains.p.rapidapi.com",
+          'X-RapidAPI-Host': 'yh-finance.p.rapidapi.com',
 
-          "X-RapidAPI-Key":
-            "0030c715ecmsh58180c0530cc6e6p188880jsncda365dc0d9f",
+          'X-RapidAPI-Key': 'aef2ce5d73msh57e05a251ace448p17675djsnf9740100c3b3'
         },
 
         data: { search: "" },
