@@ -1,9 +1,6 @@
 <template>  
 <div>
 <div class="row" style="margin-bottom: 10px;">    
-  <div class="col-sm-12 btn btn-success">    
-   How to fetch data from WEB API in Vue.js Application  
-  </div>    
 </div>   
     <div>  
 <table class="table">  

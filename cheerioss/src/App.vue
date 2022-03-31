@@ -1,12 +1,17 @@
 <template>    
+  <div>
   <Employeelist/>    
+  <table1/>
+  </div>
 </template>    
 <script>    
-import Employeelist from './components/Employeedata.vue';    
+import Employeelist from './components/Employeedata.vue';   
+import table1 from './components/table.vue' 
 export default {    
   name: 'App',    
   components: {    
-    Employeelist    
+    Employeelist,
+    table1
   }    
 }    
 </script>    
