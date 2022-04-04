@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+  <div class="p-4" id="app">
+    <table class="table table-bordered table-dark table-striped">
+      <thead>
+      <tr>
+        <th>
+          <td>Id</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Mail</td>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for ="(user,index)in users" :key="index">
+        <td v-text ="user.id"></td>
+        <td v-text ="user.first_name"></td>
+        <td v-text="user.last_name"></td>
+        <td v-text="user.email"></td>
+        
+      </tr>
+    </tbody>
+    </table>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    //
+    new Vue({
+      e1:"#app",
+      data:{
+        users:[]
+      },
+      methods:{
+        getUser(){
+          const url="https://reqres.in/api/users?page=2"
+          axios
+            .get(url)
+            .then(res=>{
+              this.users=res.data.data
+            })
+        }
+      },
+      mounted(){
+        this.getUser();
+      }
+    })
+  </script>
+</html>
