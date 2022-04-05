@@ -11,6 +11,7 @@ import ques6 from '../components/question6.vue'
 import ques7 from '../components/question7.vue'
 import ques8 from  '../components/question8.vue'
 import ques10 from '../components/question10.vue'
+import ques72 from '../components/question7-2.vue'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ component:ques1
     path:'/ques10',
     name:"ques10",
     component:ques10
+},
+{ 
+    path:'/ques72',
+    name:"ques72",
+    component:ques72
 }
 ]
 let router=new Router({routes})

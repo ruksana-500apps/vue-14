@@ -7,7 +7,12 @@
      <p>{{pendingdata1}}</p>
      <button @click="closed()">Closed</button>
      <p>{{closeddata}}</p>
-     <table>
+     <form>
+         <select>
+           <option><button @click="opens()"/> Open</option>
+         </select>
+     </form>
+    <center> <table style="border:2px solid">
          <thead>
              <tr>
                  <th>Mail</th>
@@ -17,15 +22,7 @@
 
             </tr>
          </thead>
-         <tbody>
-             <tr  v-for="data in opendata.data " :key="data.id">
-                    <td>{{data.email}}</td>
-                    <td>{{data.id}}</td>
-                    <td>{{data.name}}</td>
-                    <td>{{data.status}}</td>
-                </tr>
-         </tbody>
-     </table>
+     </table></center>
 </div>
 </template>
 
@@ -50,6 +47,7 @@ export default{
     methods:{
         opens(){
              this.opendata=this.data[0];
+             document.getElementById('id').innerHTML=this.opendata
         },
         pending(){
              this.pendingdata=this.data[1];

@@ -51,6 +51,7 @@
     <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
     </b-card>
+    <button  @click='emitCustomEvent'> Update me</button>
   </div>
 </template>
 
@@ -70,6 +71,10 @@
       }
     },
     methods: {
+      emitCustom()
+          {
+            this.$emit('emit-name',{msg:'Ruksana'})
+          },
       onSubmit(event) {
         event.preventDefault()
         alert(JSON.stringify(this.form))
@@ -86,6 +91,7 @@
         this.$nextTick(() => {
           this.show = true
         })
+          
       }
     }
   }

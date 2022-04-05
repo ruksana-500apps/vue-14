@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>Promise</head>
+    <p id='id'></p>
+    <script>
+        function displaydata(some){
+            document.getElementById('id').innerHTML=some;
+        }
+        let mypromise =new Promise(function(myResolve,myReject){
+            let x=0;
+            if(x==0){
+                myResolve("ok");
+            }
+            else{
+                myReject("done");
+            }
+            
+        });
+        mypromise.then(
+            function(value){
+                displaydata(value)
+            },
+            function(value){
+                displaydata(error)
+            }
+        );
+           
+
+    </script>
+</html>
