@@ -7,6 +7,9 @@ import ques10 from '../components/question10.vue'
 import ques9 from '../components/question9.vue'
 import ques5 from '../components/question5.vue'
 import ques3 from '../components/question3.vue'
+import ques1 from '../components/question1.vue'
+import parent from '../components/parent6.vue'
+import ques4 from '../components/question4.vue'
 
 
 Vue.use(Router)
@@ -46,6 +49,21 @@ const  routes= [
       name:"ques5",
       component:ques5
     },
+    {
+      path:"/ques1",
+      name:"ques1",
+      component:ques1
+    },
+    {
+      path:"/ques6",
+      name:"ques6",
+      component:parent
+    },
+    {
+      apth:"/ques4",
+      name:"ques4",
+      component:ques4
+    }
   
     
   ]
