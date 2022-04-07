@@ -1,80 +1,43 @@
 <template>
   <div>
-    <h2>Creating APIs</h2>
-
-    <div>
-      <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
-    </div>
-
-    <b-button @click="getData()">Click Me!</b-button>
-
-    <div>
-      <!--{{ searchData.data }}-->
-    </div>
-    <div>
-       <center> <table border=2px>
-            
-            <tr>
-                <th>Name</th>
-                <th>Num</th>
-                <th>From</th>
-                <th>To</th>
-            </tr>
-            <tbody>
-                <tr  v-for="data in searchData.data " :key="data.id">
-                    <td>{{data.name}}</td>
-                    <td>{{data.train_num}}</td>
-                    <td>{{data.train_from}}</td>
-                    <td>{{data.train_to}}</td>
-                </tr>
-            </tbody>
-
-        </table></center>
-
-   </div>
+   <b-table striped hover :items="posts.entries" :fields="fields">
+    </b-table>
+    {{posts}}
   </div>
 </template>
 
 <script>
-var axios = require("axios").default;
-
+//var axios = require("axios").default;
 export default {
-  name: "sampleApis",
-
+    name:"queS4",
   data() {
     return {
-      options: {
-        method: "POST",
-
-        url: "https://json-generator.com/api/json/get/bSldINskRK",
-
-       /* headers: {
-          "content-type": "application/json",
-
-          "X-RapidAPI-Host": "trains.p.rapidapi.com",
-
-          "X-RapidAPI-Key":
-            "0030c715ecmsh58180c0530cc6e6p188880jsncda365dc0d9f",
-        },*/
-
-        data: { search: "" },
-      },
-
-      text: "",
-
-      searchData: '',
-    };
+      posts:' ',
+      fields:["API","Description","Category"]
+      
+    }
   },
 
   methods: {
     async getData() {
-      this.options.data.search = this.text;
-
-      this.searchData = await axios.request(this.options);
+      try {
+        let response = await fetch("https://api.publicapis.org/entries");
+        this.posts = await response.json();
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
-};
+ /*mounted() {
+   axios
+      .get("http://www.json-generator.com/api/json/get/bSldINskRK")
+      .then(response=>(this.posts=response))
+
+  }*/
+
+  created() {
+    this.getData();
+  },
+}
+
 </script>
-
-
-
