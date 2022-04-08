@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>QUESTION2</h1>
+           
+            <form name="myform" >
+                <label for="number1">1st Number : </label><br>
+                <input type="number" name="value1" id="value1" placeholder="Enter value" required></input><br>
+                <label for="number2">2nd Number : </label><br>
+                <input type="number" name="value2" id="value2" placeholder="Enter value" required></input><br><br>
+               
+            </form>
+            <button type="submit" onclick="multi()">Multiply</button>
+            <button type="submit" onclick="divi()">Divide</button>
+            <p id="id"></p>
+
+            
+        <script>
+            function multi(){
+                var val1=document.myform.value1.value;
+                var val2=document.myform.value2.value;
+                document.getElementById('id').innerHTML=val1*val2;
+            }
+            function divi(){
+                var val1=document.myform.value1.value;
+                var val2=document.myform.value2.value;
+                document.getElementById('id').innerHTML=val1/val2;
+            }
+        </script>
+    </body>
+</html>

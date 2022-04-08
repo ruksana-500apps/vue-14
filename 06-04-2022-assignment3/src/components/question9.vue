@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form @submit="onSubmit"  v-if="show">
         <b-form-group id="input-group-1"  label-for="input-1">
         <b-form-input
           id="input-1"
@@ -66,8 +66,7 @@
       }
     },
     methods: {
-     onSubmit(event) {
-        event.preventDefault()
+     onSubmit() {
         document.getElementById('id').innerHTML=(JSON.stringify(this.form))
       }
     }

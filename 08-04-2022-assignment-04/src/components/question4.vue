@@ -1,24 +1,21 @@
 <template>
     <div>
-       <center><input type="text" name="search" id="search" v-on:keyup="search()" placeholder="search .."></center>
+       <center><input type="text" name="search" id="search" v-on:keyup="search()" ></center>
        <center> <table  id="mytable">
             <tr >
-              <td>{{array[0]}}</td> 
+              <td>{{list[0]}}</td> 
             </tr>
             <tr>
-                <td>{{array[1]}}</td>  
+                <td>{{list[1]}}</td>  
             </tr>
             <tr>
-                <td>{{array[2]}}</td>
+                <td>{{list[2]}}</td>
             </tr>
             <tr>
-                <td>{{array[3]}}</td>
+                <td>{{list[3]}}</td>
             </tr>
             <tr>
-                <td>{{array[4]}}</td>
-            </tr>
-            <tr>
-                <td>{{array[5]}}</td>
+                <td>{{list[4]}}</td>
             </tr>
         </table></center>
 
@@ -30,7 +27,7 @@ export default{
     name:'queS12',
     data(){
         return{
-             array :["agile", "crm", "mantra", "technologies", "500apps", "infinity"],
+            list : [ 'orange', 'red', 'blue', 'black', 'white' ]
         }
     },
     methods:{

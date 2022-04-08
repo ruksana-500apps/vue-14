@@ -12,6 +12,7 @@ import parent from '../components/parent6.vue'
 import ques4 from '../components/question4.vue'
 import fetchs from '../components/fetch.vue'
 import sample from '../components/sample'
+import side from '../components/sidebar.vue'
 
 
 Vue.use(Router)
@@ -71,6 +72,11 @@ const  routes= [
       path:"/sample",
       name:"sample",
       component:sample
+    },
+    {
+      path:'/side',
+      name:"side",
+      component:side
     }
   
     
