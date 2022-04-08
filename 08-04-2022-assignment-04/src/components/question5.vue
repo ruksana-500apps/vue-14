@@ -1,53 +1,53 @@
 <template>
   <div>
-    <!--<h2>Creating APIs</h2>-->
-    {{ searchData.data }}
 
-    <!--<div>
-      <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
-    </div>-->
+    <div>
+      <b-form-input v-model="text" placeholder="Enter country"></b-form-input>
+    </div>
 
     <b-button @click="getData()">Click Me!</b-button>
 
-    
-  <!--  <div>
+    <div>
+      <!--{{ searchData }}-->
+    </div>
+    <div>
        <center> <table border=2px>
             
             <tr>
                 <th>Name</th>
                 <th>Domains</th>
-                <th>State_Province</th>
-                <th>Web_Pages</th>
+                <th>Country</th>
+                <th>web_pages</th>
             </tr>
             <tbody>
                 <tr  v-for="data in searchData.data " :key="data.id">
                     <td>{{data.name}}</td>
                     <td>{{data.domains}}</td>
-                    <td>{{data.state_province}}</td>
+                    <td>{{data.country}}</td>
                     <td>{{data.web_pages}}</td>
                 </tr>
             </tbody>
 
-        </table></center>-->
+        </table></center>
 
    </div>
+  </div>
 </template>
 
 <script>
-//var axios = require("axios").default;
+var axios = require("axios").default;
 
 export default {
   name: "sampleApis",
 
   data() {
     return {
-      //options: {
-       // method: "POST",
+      options: {
 
-      //  url: "http://universities.hipolabs.com/search",
+        url: "http://universities.hipolabs.com/search?country",
 
         data: { search: "" },
-     // },
+      },
 
       text: "",
 
@@ -57,11 +57,9 @@ export default {
 
   methods: {
     async getData() {
-     let response = await fetch("http://universities.hipolabs.com/search");
-     this.posts = await response.json();
-      //this.posts.data.search = this.text;
+      this.options.data.search = this.text;
 
-      //this.searchData = await axios.request(this.posts);
+      this.searchData = await axios.request(this.options);
     },
   },
 };
