@@ -1,69 +1,56 @@
 <template>
   <div>
-
-    <div>
-      <b-form-input v-model="text" placeholder="Enter country"></b-form-input>
-    </div>
-
-    <b-button @click="getData()">Click Me!</b-button>
-
-    <div>
-      <!--{{ searchData }}-->
-    </div>
-    <div>
-       <center> <table border=2px>
-            
-            <tr>
-                <th>Name</th>
-                <th>Domains</th>
-                <th>Country</th>
-                <th>web_pages</th>
-            </tr>
-            <tbody>
-                <tr  v-for="data in searchData.data " :key="data.id">
-                    <td>{{data.name}}</td>
-                    <td>{{data.domains}}</td>
-                    <td>{{data.country}}</td>
-                    <td>{{data.web_pages}}</td>
-                </tr>
-            </tbody>
-
-        </table></center>
-
-   </div>
+    <b-form-input  v-model="text" placeholder="Enter country" required>
+    </b-form-input>
+     <button @click='getData()' >Submit</button>
+   <!--<b-table striped hover :items="posts" :fields="fields">
+    </b-table>-->
+    <b-container class="bv-example-row">
+    <b-card  >
+       <b-card-text v-for="data1 in posts" :key="data1.id">
+      <b-card>  <b-row>
+           <b-col cols="2.5">University Name:{{data1.name}}</b-col></b-row>
+           <b-row>
+           <b-col cols="1.5" >Domains:{{data1.domains}}</b-col>
+           <b-col cols="9" >Website :{{data1.web_pages[0]}}</b-col>
+           </b-row></b-card>
+       </b-card-text>
+    </b-card>
+    </b-container>
   </div>
 </template>
 
 <script>
-var axios = require("axios").default;
-
 export default {
-  name: "sampleApis",
-
+    name:"queS4",
   data() {
     return {
-      options: {
-
-        url: "http://universities.hipolabs.com/search?country",
-
-        data: { search: "" },
-      },
-
-      text: "",
-
-      searchData: '',
-    };
+      posts:' ',
+      //fields:["name","domains","state-province","web_pages","country"]
+      
+    }
   },
 
   methods: {
     async getData() {
-      this.options.data.search = this.text;
-
-      this.searchData = await axios.request(this.options);
+      try {
+        let response = await fetch("http://universities.hipolabs.com/search?country="+this.text);
+        this.posts = await response.json();
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
-};
+ /*mounted() {
+   axios
+      .get("http://www.json-generator.com/api/json/get/bSldINskRK")
+      .then(response=>(this.posts=response))
+
+  }*/
+
+  created() {
+    this.getData();
+  },
+}
+
 </script>
-
-
-
