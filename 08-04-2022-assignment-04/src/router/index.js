@@ -8,6 +8,7 @@ import ques5 from '../components/question5.vue'
 import ques6 from '../components/question6.vue'
 import ques66 from '../components/question66.vue'
 import ques7 from '../components/question7.js'
+import seven from '../components/seven.vue'
 
 
 
@@ -49,6 +50,11 @@ const routes =[
       path:'/ques7',
       name:"ques7",
       component:ques7
+    },
+    {
+      path:'/seven',
+      name:"seven",
+      component :seven
     }
 
 ]
