@@ -5,6 +5,9 @@ import Router from './router'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { BootstrapVue} from 'bootstrap-vue'
+import JwPagination from 'jw-vue-pagination';
+
+Vue.component('jw-pagination', JwPagination);
 
 
 

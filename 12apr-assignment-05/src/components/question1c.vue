@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <h1>Random User</h1>
+   
       <div
          class="user"
          v-for="user in users"
          :key="user.first"
       >
+     
       <div class="user-details">
         <h2 class="user-name">
           {{ user.name.first }}
@@ -35,7 +36,7 @@ export default {
       return convertedDate.toDateString();
     },
     getInitialUsers() {
-      axios.get(`).then((response) => {
+      axios.get(`https://randomuser.me/api/?results=5`).then((response) => {
         this.users = response.data.results;
       });
     },
