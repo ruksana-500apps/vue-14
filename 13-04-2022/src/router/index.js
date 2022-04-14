@@ -4,6 +4,8 @@ import Router from 'vue-router'
 
 import ques1 from '../components/question1.vue'
 
+import ques2 from '../components/question2.vue'
+
 
 
 
@@ -17,6 +19,11 @@ const routes =[
         name:"ques1",
         component:ques1
     },
+    {
+        path:"/ques2",
+        name:"ques2",
+        component:ques2
+    }
     
 
     
