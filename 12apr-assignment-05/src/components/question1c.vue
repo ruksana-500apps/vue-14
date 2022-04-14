@@ -4,13 +4,13 @@
       <div
          class="user"
          v-for="user in users"
-         :key="user.first"
+         :key="user.id"
       >
      
       <div class="user-details">
         <h2 class="user-name">
-          {{ user.name.first }}
-          {{ user.name.last }}
+          {{ user.name}}
+          {{ user.domains }}
         </h2>
         <ul>
           <li><strong>Birthday:</strong> {{ formatDate(user.dob.date) }}</li>
@@ -36,16 +36,16 @@ export default {
       return convertedDate.toDateString();
     },
     getInitialUsers() {
-      axios.get(`https://randomuser.me/api/?results=5`).then((response) => {
-        this.users = response.data.results;
+      axios.get(`http://universities.hipolabs.com/search?country`).then((response) => {
+        this.users = response.data;
       });
     },
     getNextUser() {
       window.onscroll = () => {
         let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
         if (bottomOfWindow) {
-          axios.get(`https://randomuser.me/api/`).then(response => {
-            this.users.push(response.data.results[0]);
+          axios.get(`http://universities.hipolabs.com/search?country`).then(response => {
+            this.users.push(response.data);
           });
         }
       }
