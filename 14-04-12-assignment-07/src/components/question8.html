@@ -5,19 +5,21 @@
 
 <head>
 
-<title>Document</title>
+<title>Question8</title>
 
 </head>
 
 
 <body>
 
+    <p id="id"></p>
+
 <script>
 
 var color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
 
 
-function Ordinal(n) {
+function func(n) {
 
 var o = ["th", "st", "nd", "rd"],
 
@@ -30,13 +32,13 @@ return x + (o[(x - 20) % 10] || o[x] || o[0]);
 
 for (n = 0; n < color.length; n++) {
 
-var ordinal = n + 1;
+var res = n + 1;
 
 
-var output = (Ordinal(ordinal) + " choice is " + color[n] + ".");
+var result= (func(res) + " one is" + color[n] + ".");
 
 
-console.log(output);
+document.getElementById('id').innerHTML=result
 
 }
 

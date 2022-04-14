@@ -5,16 +5,19 @@
 
 <head>
 
-<title>Document</title>
+<title>question7</title>
 
 </head>
 
 
 <body>
 
+    <p id="id"></p>
+    <p id="id1"> </p>
+
 <script>
 
-function removeDuplicates(num) {
+function remove(num) {
 
 var x,
 
@@ -41,13 +44,15 @@ return out;
 
 }
 
-var Mynum = [1, 2, 2, 4, 5, 4, 7, 8, 7, 3, 6];
+var num1 = [1, 2, 2, 4, 5, 4, 7, 8, 7, 3, 6];
 
-result = removeDuplicates(Mynum);
+result = remove(num1);
 
-console.log(Mynum);
+document.getElementById('id').innerHTML=num1
+document.getElementById('id1').innerHTML=result
 
-console.log(result);
+
+
 
 </script>
 
