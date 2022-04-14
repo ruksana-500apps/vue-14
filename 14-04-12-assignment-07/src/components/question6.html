@@ -4,19 +4,20 @@
 
 <head>
 
-<title>Document</title>
+<title>question6</title>
 
 </head>
 
 <body>
+    <p id="id"></p>
 
 <script>
 
 const arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
 
-let mf = 1;
+let f = 1;
 
-let m = 0;
+let f1= 0;
 
 let item;
 
@@ -30,13 +31,13 @@ for (let j=i; j<arr1.length; j++)
 
 if (arr1[i] == arr1[j])
 
-m++;
+f1++;
 
-if (mf<m)
+if (f<f1)
 
 {
 
-mf=m;
+f=f1;
 
 item = arr1[i];
 
@@ -44,11 +45,11 @@ item = arr1[i];
 
 }
 
-m=0;
+f1=0;
 
 }
-
-console.log(`${item} ( ${mf} times ) `) ;
+document.getElementById('id').innerHTML=`${item} ( ${f} times ) `
+//console.log(`${item} ( ${f} times ) `) ;
 
 </script>
 
