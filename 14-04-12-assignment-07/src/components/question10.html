@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 
 <head>
 
@@ -9,14 +9,15 @@
 </head>
 
 <body>
-
+    <p id='id'></p>
 <script>
+   
 
-function filter_array(test_array) {
+function filter_array(array) {
 
 var index = -1,
 
-arr_length = test_array ? test_array.length : 0,
+arr_length = array ? array.length : 0,
 
 resIndex = -1,
 
@@ -24,7 +25,7 @@ result = [];
 
 while (++index < arr_length) {
 
-var value = test_array[index];
+var value = array[index];
 
 if (value) {
 
@@ -38,7 +39,7 @@ return result;
 
 }
 
-console.log(filter_array([NaN, 0, 15, false, -22, '', undefined, 47, null]));
+document.getElementById('id').innerHTML=(filter_array([NaN, 0, 15, false, -22, '', undefined, 47, null]));
 
 </script>
 
